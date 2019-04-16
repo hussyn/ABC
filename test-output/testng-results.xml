@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="2" total="3" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="8994" started-at="2019-04-16T18:44:00Z" finished-at="2019-04-16T18:44:09Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="8994" started-at="2019-04-16T18:44:00Z" finished-at="2019-04-16T18:44:09Z">
+      <class name="com.hubspot.test.LoginPageTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.hubspot.test.LoginPageTest@185d8b6]" name="setUp" is-config="true" duration-ms="6333" started-at="2019-04-17T00:14:00Z" finished-at="2019-04-17T00:14:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="invalidLogin()[pri:2, instance:com.hubspot.test.LoginPageTest@185d8b6]" name="invalidLogin" duration-ms="2639" started-at="2019-04-17T00:14:06Z" finished-at="2019-04-17T00:14:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- invalidLogin -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.hubspot.test.LoginPageTest@185d8b6]" name="tearDown" is-config="true" duration-ms="0" started-at="2019-04-17T00:14:09Z" finished-at="2019-04-17T00:14:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.hubspot.test.LoginPageTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

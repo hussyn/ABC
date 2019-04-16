@@ -1,0 +1,10 @@
+# Each conversion specifier starts with a percent sign (%) and is followed by optional format modifiers and a conversion character
+# %d{dd MMM yyyy HH:mm:ss,SSS} - Used to output the date of the logging event, we can specify date format specifier enclosed between braces
+# %F - Used to print file name
+# %-5p means the priority of the logging event should be left justified to a width of five characters.
+# %t - Used to output the name of the thread that generated the logging event.
+# %L - Used to output the line number from where the logging request was issued.
+# %m - Used to output the application supplied message associated with the logging event.
+# %M - Used to output the method name where the logging request was issued.
+#%d{ISO8601}Formats a Date in the format "yyyy-MM-dd HH:mm:ss,SSS" for example "1999-11-27 15:49:37,459".
+#%d{HH:mm:ss,SSS} Used to output the date of the logging event. If no date format specifier is given then ISO8601 format is assumed by default.

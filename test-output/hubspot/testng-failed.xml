@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [hubspot]">
+  <listeners>
+    <listener class-name="com.listeners.ExtentReporterNG"/>
+  </listeners>
+  <test name="hubspotTest(failed)">
+    <classes>
+      <class name="com.hubspot.test.ContactsPageTest">
+        <methods>
+          <include name="createNewContactTest" invocation-numbers="0"/>
+          <include name="SetUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.hubspot.test.ContactsPageTest -->
+      <class name="com.hubspot.test.LoginPageTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="getPageTitle"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.hubspot.test.LoginPageTest -->
+    </classes>
+  </test> <!-- hubspotTest(failed) -->
+</suite> <!-- Failed suite [hubspot] -->
