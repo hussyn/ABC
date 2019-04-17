@@ -26,7 +26,6 @@ public class LoginPageTest extends TestBase {
 	@BeforeMethod
 	
 	public void setUp() {
-		log.info("TestBase started");
 	 testBase=new TestBase();
 	 prop=testBase.initialize_Properties();
 	 testBase.initialize_driver();
@@ -45,8 +44,9 @@ public class LoginPageTest extends TestBase {
 	
 	@Test(priority=2)
 	public void invalidLogin() {
+		
 		log.info("***********************************Invalid login Test case***********************************");
-		loginPage=loginPage.invalidLogin(prop.getProperty("invalidusername"), prop.getProperty("invalidpassword"));
+		loginPage=loginPage.invalidLogin(prop.getProperty("invalidusername"), prop.getProperty("invalidpassword1"));
 
 		Assert.assertEquals(loginPage.getErrorMessage(), prop.getProperty("alert"));
 	    log.info("***********************************End Invalid login Test case***********************************");
@@ -61,6 +61,7 @@ public class LoginPageTest extends TestBase {
 		log.info("pagetitleAct");
 		
 	}
+	
 
 	@AfterMethod //--this method will be executed after every test method
 	public void tearDown(){

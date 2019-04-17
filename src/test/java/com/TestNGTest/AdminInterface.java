@@ -5,7 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class AdminInterface {
-
+//http://softwaretestingtalk.com/registration-form/
+	//http://softwaretestingtalk.com/automation-practice-form-a-basic-form-with-different-webelements/
 	public static WebDriver driver;
 	
 	public void launchApp() {

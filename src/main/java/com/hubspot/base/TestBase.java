@@ -6,9 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import org.apache.commons.io.FileUtils;
-//import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -16,13 +15,25 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.io.FileHandler;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.openqa.selenium.support.events.WebDriverEventListener;
 import org.testng.Assert;
+
+import com.zoopla.utility.WebEventListener;
+
+//import com.zoopla.utility.TestListener;
+
 
 
 public class TestBase {
 	public static WebDriver driver;
 	public Properties prop;
-
+	//for log4j
+	public Logger log;
+	
+	EventFiringWebDriver e_driver;
+	public static WebDriverEventListener eventListener;
 	//public static ThreadLocal<WebDriver> tdriver = new ThreadLocal<WebDriver>();
 
 	public void initialize_driver() {
@@ -35,6 +46,12 @@ public class TestBase {
 		//tdriver.set(driver);
 		//return getDriver();
 		
+		e_driver=new EventFiringWebDriver(driver);
+		
+	    eventListener = new WebEventListener(); 
+	    e_driver.register(eventListener);
+	    driver=	e_driver;
+			
 	}
 
 /*	public static synchronized WebDriver getDriver() {
@@ -43,6 +60,7 @@ public class TestBase {
 	
 	public Properties initialize_Properties() {
 
+		log=Logger.getLogger(this.getClass());
 		
 		prop = new Properties();
 		try {
@@ -61,15 +79,19 @@ public class TestBase {
 		return prop;
 	}
 	
+
 	
-	public String getScreenshot() {
+	public static String getScreenshot() {
 		TakesScreenshot sh=(TakesScreenshot) driver;
 		
 		File src = sh.getScreenshotAs(OutputType.FILE);
-		String path = System.getProperty("user.dir") + "/screenshots/" + System.currentTimeMillis() + ".png";
+		String path = System.getProperty("user.dir") + "//Screenshot//" + System.currentTimeMillis() +"ScreenshotName" +".png";
+		System.out.println(path);
+		//String path = ".\\Screenshot\\" + System.currentTimeMillis() + ".png";
 		File destination = new File(path);
 		try {
 			FileUtils.copyFile(src, destination);
+			//FileHandler.copy(src, destination);
 		} catch (IOException e) {
 			System.out.println("Capture Failed " + e.getMessage());
 		}
@@ -110,17 +132,16 @@ public class TestBase {
 
 
                 //(HIGHLIGHT METHOD)
-    public void highlight(WebElement element) {
+    public static void highlight(WebElement element) throws InterruptedException {
         for (int i = 0; i < 2; i++) {
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript(
                     "arguments[0].setAttribute('style', arguments[1]);",
                     element, "border: 4px solid Green;");
-            delayFor(200);
-            js.executeScript(
-                    "arguments[0].setAttribute('style', arguments[1]);",
-            element, "");
-            delayFor(200);
+            Thread.sleep(200);
+            js.executeScript("arguments[0].setAttribute('style', arguments[1]);",element, "");
+
+            Thread.sleep(200);
         }
     }
 

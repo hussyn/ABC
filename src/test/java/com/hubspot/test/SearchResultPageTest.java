@@ -51,7 +51,7 @@ public class SearchResultPageTest extends TestBase {
 
     //(test 3 = Page Object Model "POM")
     @Test(priority=0)
-    public void verifySpecialProductInfoForSearchResult() {
+   // public void verifySpecialProductInfoForSearchResult() {
         //(Outside)PageFactory.initElements(new AjaxElementLocatorFactory(driver,30),homePage);
         //homePage.verifyTitle();
 
@@ -66,7 +66,7 @@ public class SearchResultPageTest extends TestBase {
         //searchResultPage.verifySpecialProductPrice(0, "$59.99-$99.99");
        // System.out.println("Rose Elegance™ Premium Long Stem Red Roses");
 
-        searchResultPage.verifySpecialProductName(1, "Blooming Love™ Premium Red Roses");
+       /* searchResultPage.verifySpecialProductName(1, "Blooming Love™ Premium Red Roses");
         searchResultPage.verifySpecialProductPrice(1, "$64.99-$89.99");
         System.out.println("Blooming Love™ Premium Red Roses");
 
@@ -78,7 +78,7 @@ public class SearchResultPageTest extends TestBase {
         searchResultPage.verifySpecialProductName(3, "100 Premium Long Stem Red Roses");
         searchResultPage.verifySpecialProductPrice(3, "$349.99");
         System.out.println("100 Premium Long Stem Red Roses");
-    }
+    }*/
     
     @AfterMethod
     public void teardown(){
