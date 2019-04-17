@@ -10,6 +10,9 @@
  		 <!--<include name="functionalTest"/>  -->
  		 <!-- <include name="nonfunctionTest"/>  -->
   		<!-- <exclude name="smokeTest"/>  -->
+      <!--<include name="functionalTest"/>  -->
+ 		 <!-- <include name="nonfunctionTest"/>  -->
+  		<!-- <exclude name="smokeTest"/>  -->
   	</run>
   </groups>
 
