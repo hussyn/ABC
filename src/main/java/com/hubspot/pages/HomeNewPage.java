@@ -44,7 +44,7 @@ public class HomeNewPage extends TestBase {
         String title = driver.getTitle();
         Assert.assertEquals(titleShouldBe, title);
     }
-    public void search(String textToSearch){
+    public void search(String textToSearch) throws InterruptedException{
         highlight(searchTextbox);
         searchTextbox.sendKeys(textToSearch);
         highlight(searchButton);

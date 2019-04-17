@@ -42,14 +42,14 @@ public class SearchResultPage extends TestBase { //public class SearchResultPage
         Assert.assertEquals(expected,actual);
     }
 
-    public void verifySpecialProductName(int index, String ExpectedName) {
+    public void verifySpecialProductName(int index, String ExpectedName) throws InterruptedException {
         WebElement element = specialProductList.get(index);
         jsScrollElementIntoView(element);
         highlight(element);
         String actualName = element.getText();
         Assert.assertEquals(ExpectedName, actualName);
     }
-    public void verifySpecialProductPrice(int index, String ExpectedPrice) {
+    public void verifySpecialProductPrice(int index, String ExpectedPrice) throws InterruptedException {
         WebElement element = specialProductPriceList.get(index);
         highlight(element);
         String actualName = element.getText();

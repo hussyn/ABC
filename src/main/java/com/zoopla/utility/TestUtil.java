@@ -33,12 +33,35 @@ public class TestUtil extends TestBase{
 	wait.until(ExpectedConditions.visibilityOf(ele));
 	}
 	
+	public void getScreenshot() {
+		TakesScreenshot sh=(TakesScreenshot) driver;
+		
+		File src = sh.getScreenshotAs(OutputType.FILE);
+		String path = System.getProperty("user.dir") + "//Screenshot//" + System.currentTimeMillis() + "test.png";
+		System.out.println(path);
+		
+		File destination = new File(path);
+		try {
+			FileUtils.copyFile(src, destination);
+		} catch (IOException e) {
+			System.out.println("Capture Failed " + e.getMessage());
+		}
+		
+		System.out.println(path+"-------------path");
+		
+	}
 	
-	public static void takeScreenshotAtEndOfTest() throws IOException {
+	public static void takeScreenshotAtEndOfTest() throws IOException  {
+		System.out.println("********************inside takeScreenshotAtEndOfTest");
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		String currentDir = System.getProperty("user.dir");
-		FileUtils.copyFile(scrFile, new File(currentDir + "/screenshots/" + System.currentTimeMillis() + ".png"));
+		String path = System.getProperty("user.dir") + "//Screenshot//" + System.currentTimeMillis() + ".png";
+		File destination = new File(path);
+		System.out.println("path"+path);
+		System.out.println("currentDir"+currentDir);
+		FileUtils.copyDirectory(scrFile, destination);
 	}
+	
 	public static void selectFromDropDown(WebElement ele,String VisibleText) {
 		Select sel=new Select(ele);
 		sel.selectByVisibleText(VisibleText);
@@ -54,6 +77,20 @@ public class TestUtil extends TestBase{
 		//We can achieve this by chaining all actions to simulate mouse hover.
 		action.moveToElement(hoverElement).moveToElement(Ele).click().build().perform();
 	}
+	
+	 //(HIGHLIGHT METHOD)
+    public void highlight(WebElement element) throws InterruptedException {
+        for (int i = 0; i < 2; i++) {
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            //js.executeScript("arguments[0].setAttribute('style', arguments[1]);",element, "border: 4px solid Green;");
+            js.executeScript("arguments[0].style.border='3px solid red';", element);       
+                    
+            Thread.sleep(200);
+            //js.executeScript("arguments[0].setAttribute('style', arguments[1]);",element, "");
+
+           // Thread.sleep(200);
+        }
+    }
 	
 	public void javscript(WebElement checkbox) {
 		JavascriptExecutor js=(JavascriptExecutor) driver;
